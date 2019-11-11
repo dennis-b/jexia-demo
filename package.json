@@ -1,0 +1,26 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "description": "full stack app",
+  "main": "index.js",
+  "author": "Dennis Borshchevski",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "install": "yarn install:client && yarn install:server",
+    "install:client": "(cd ./client && yarn install)",
+    "install:server": "(cd ./server && yarn install)",
+    "start:dev": "yarn start:client & yarn start:server",
+    "start:client": "(cd ./client && yarn start)",
+    "start:server": "(cd ./server && yarn start:watch)",
+    "postinstall": "yarn run build",
+    "build": "yarn build:client",
+    "build:client": "(cd ./client && yarn build)",
+    "start": "yarn run start:prod",
+    "start:prod": "(cd ./server && ./node_modules/.bin/ts-node ./src/main.ts)"
+  },
+  "engines": {
+    "node": "8.15.0",
+    "yarn": "0.27.5"
+  }
+}
