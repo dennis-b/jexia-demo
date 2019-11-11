@@ -40,7 +40,6 @@ export class JexiaService {
         return this.dataModule;
     }
 
-    // todo(return Promise<string> ?? )
     async signIn({ email, password, default: isDefault, alias }: IUMSSignInOptions): Promise<string> {
         try {
             return await this.ums.signIn({ email, password, default: isDefault, alias });
