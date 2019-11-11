@@ -3,7 +3,7 @@ import { ThemeProvider, } from '@material-ui/styles';
 import { AppDialog, AppNotification, DialogHandler, NotificationHandler } from 'common';
 import { Provider } from 'mobx-react';
 import React from 'react';
-import { Router } from 'react-router';
+import { HashRouter } from 'react-router-dom'
 import { ThemeProvider as StyledProvider } from 'styled-components';
 
 import GlobalTheme from 'theme';
@@ -13,7 +13,7 @@ import { ContentRoot, GlobalStyle } from './styled';
 const theme = createMuiTheme({ typography: { useNextVariants: true } });
 
 export const App = ({ history, stores }) => (
-    <Router history={history}>
+    <HashRouter>
         <Provider {...stores}>
             <StyledProvider theme={{ global: GlobalTheme }}>
                 <ThemeProvider theme={theme}>
@@ -26,5 +26,5 @@ export const App = ({ history, stores }) => (
                 </ThemeProvider>
             </StyledProvider>
         </Provider>
-    </Router>
+    </HashRouter>
 );
